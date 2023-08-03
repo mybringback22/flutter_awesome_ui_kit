@@ -1,7 +1,6 @@
 library flutter_awesome_ui_kit;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/awesome_profile_image/awesome_profile_image.dart';
+export 'src/awesome_profile_image/profile_image_display.dart';
+export 'src/awesome_button/awesome_button.dart';
+export 'src/awesome_button/button_type.dart';
