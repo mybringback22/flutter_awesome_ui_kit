@@ -7,10 +7,12 @@ class AwesomeProfileImage {
   String? imageUrl;
   double borderWidth;
   String? placeholderAssets;
+  ProfileDisplayShape? profileDisplayShape = ProfileDisplayShape.circle;
   
 
   AwesomeProfileImage({
-    this.profileDisplaySize = ProfileDisplaySize.medium ,
+    this.profileDisplaySize = ProfileDisplaySize.medium,
+    this.profileDisplayShape = ProfileDisplayShape.square,
     this.borderColor = Colors.white,
     this.backgoundColor = Colors.grey,
     this.imageUrl,
@@ -37,7 +39,13 @@ enum ProfileDisplaySize {
   large,
 }
 
-Color getStatusColorBasedOnUserStatus(UserStatus userStatus) {
+enum ProfileDisplayShape {
+  circle,
+  square,
+  squareround,
+}
+
+ Color getStatusColorBasedOnUserStatus(UserStatus userStatus) {
   switch (userStatus) {
     case UserStatus.online:
       return Colors.green;

@@ -57,5 +57,8 @@ class AwesomeButton {
     if (icon != null && imageIcon != null) {
       throw Exception('There can only one of icon or imageIcon');
     }
+    if(!enabled){
+      showShadow = false;
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 
 extension ButtonsUtils on AwesomeButton{
+
    Widget iconSpacing(bool isAfterText) {
     Widget widget = const SizedBox(
       width: 0,
@@ -92,12 +93,12 @@ extension ButtonsUtils on AwesomeButton{
               color: (enabled) ? textColor : disabledTextColor,
             ),
           ),
-          iconPlacement(true),
           iconSpacing(true),
+          iconPlacement(true),
         ],
       ),
     );
   }
 
-  
+
 }
