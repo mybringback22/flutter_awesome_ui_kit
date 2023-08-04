@@ -6,30 +6,40 @@ extension DisplayImage on AwesomeProfileImage {
       {UserStatus? userStatus = UserStatus.offline,
       bool showStatus = false,
       Color? customStatusColor}) {
-    return Stack(
-      children: [
-        mainDisplay(),
-        (showStatus)
-            ? Positioned(
-                bottom: 0,
-                right: (profileDisplayShape == ProfileDisplayShape.circle)? getMarginForBadge(profileDisplaySize): 0,
-                child: Container(
-                  width: getBadgeSizeFromProfileDisplaySize(profileDisplaySize),
-                  height:
-                      getBadgeSizeFromProfileDisplaySize(profileDisplaySize),
-                  decoration: BoxDecoration(
-                    color: (customStatusColor != null)
-                        ? customStatusColor
-                        : getStatusColorBasedOnUserStatus(userStatus!),
-                    shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: () {
+        if (onImageClicked != null) {
+          onImageClicked!();
+        }
+      },
+      child: Stack(
+        children: [
+          mainDisplay(),
+          (showStatus)
+              ? Positioned(
+                  bottom: 0,
+                  right: (profileDisplayShape == ProfileDisplayShape.circle)
+                      ? getMarginForBadge(profileDisplaySize)
+                      : 0,
+                  child: Container(
+                    width:
+                        getBadgeSizeFromProfileDisplaySize(profileDisplaySize),
+                    height:
+                        getBadgeSizeFromProfileDisplaySize(profileDisplaySize),
+                    decoration: BoxDecoration(
+                      color: (customStatusColor != null)
+                          ? customStatusColor
+                          : getStatusColorBasedOnUserStatus(userStatus!),
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                ),
-              )
-            : const SizedBox(
-                width: 0,
-                height: 0,
-              )
-      ],
+                )
+              : const SizedBox(
+                  width: 0,
+                  height: 0,
+                )
+        ],
+      ),
     );
   }
 
@@ -37,70 +47,97 @@ extension DisplayImage on AwesomeProfileImage {
       {UserStatus? userStatus = UserStatus.offline,
       bool showStatus = false,
       Color? customStatusColor}) {
-    return Stack(
-      children: [
-        mainDisplay(),
-        (showStatus)
-            ? Positioned(
-                bottom: 0,
-                right: (profileDisplaySize == ProfileDisplaySize.large && profileDisplayShape== ProfileDisplayShape.circle)? 30 :0,
-                child: Container(
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                      color: (customStatusColor != null)
-                          ? customStatusColor
-                          : getStatusColorBasedOnUserStatus(userStatus!),
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    userStatus!.name.toUpperCase(),
-                    style: TextStyle(
-                      fontSize: getBadgeFontSizeFromProfileDisplaySize(
-                        profileDisplaySize,
+    return GestureDetector(
+      onTap: () {
+        if (onImageClicked != null) {
+          onImageClicked!();
+        }
+      },
+      child: Stack(
+        children: [
+          mainDisplay(),
+          (showStatus)
+              ? Positioned(
+                  bottom: 0,
+                  right: (profileDisplaySize == ProfileDisplaySize.large &&
+                          profileDisplayShape == ProfileDisplayShape.circle)
+                      ? 30
+                      : 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                        color: (customStatusColor != null)
+                            ? customStatusColor
+                            : getStatusColorBasedOnUserStatus(userStatus!),
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Text(
+                      userStatus!.name.toUpperCase(),
+                      style: TextStyle(
+                        fontSize: getBadgeFontSizeFromProfileDisplaySize(
+                          profileDisplaySize,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              )
-            : const SizedBox(
-                width: 0,
-                height: 0,
-              )
-      ],
+                )
+              : const SizedBox(
+                  width: 0,
+                  height: 0,
+                )
+        ],
+      ),
     );
   }
 
   Widget displayWithIcon(
-      {Color badgeBackgroundColor = Colors.grey,
+      {Color iconBackgroundColor = Colors.grey,
       Color iconColor = Colors.black,
       IconData icon = Icons.upload,
       Color iconBorderColor = Colors.white,
       double iconBorderWidth = 0,
       required Function() onIconClicked}) {
-    return Stack(
-      children: [
-        mainDisplay(),
-        Positioned(
-          bottom: 0,
-          right: getMarginForBadge(profileDisplaySize),
-          child: Container(
-            width: getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
-            height: getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
-            decoration: BoxDecoration(
-                color: badgeBackgroundColor,
-                shape: BoxShape.circle,
-                border:
-                    Border.all(color: iconBorderColor, width: iconBorderWidth)),
-            child: Center(
-                child: Icon(
-              icon,
-              size: getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize) -
-                  5,
-              color: iconColor,
-            )),
-          ),
-        )
-      ],
+    return GestureDetector(
+      onTap: () {
+        if (onImageClicked != null) {
+          onImageClicked!();
+        }
+      },
+      child: Stack(
+        children: [
+          mainDisplay(),
+          Positioned(
+            bottom: 0,
+            right: (profileDisplaySize == ProfileDisplaySize.large &&
+                    profileDisplayShape == ProfileDisplayShape.circle)
+                ? 30
+                : 0,
+            child: GestureDetector(
+              onTap: (){
+                onIconClicked();
+              },
+              child: Container(
+                width: getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
+                height:
+                    getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
+                decoration: BoxDecoration(
+                    color: iconBackgroundColor,
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                        color: iconBorderColor, width: iconBorderWidth)),
+                child: Center(
+                    child: Icon(
+                  icon,
+                  size:
+                      getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize) -
+                          5,
+                  color: iconColor,
+                )),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 

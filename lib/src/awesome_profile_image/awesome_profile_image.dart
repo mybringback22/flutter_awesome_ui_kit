@@ -8,6 +8,7 @@ class AwesomeProfileImage {
   double borderWidth;
   String? placeholderAssets;
   ProfileDisplayShape? profileDisplayShape = ProfileDisplayShape.circle;
+  Function ()? onImageClicked;
   
 
   AwesomeProfileImage({
@@ -18,6 +19,7 @@ class AwesomeProfileImage {
     this.imageUrl,
     this.borderWidth = 0,
     this.placeholderAssets,
+    this.onImageClicked,
   });
 
   
