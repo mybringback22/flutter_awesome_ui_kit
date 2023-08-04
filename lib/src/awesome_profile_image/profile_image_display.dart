@@ -90,6 +90,106 @@ extension DisplayImage on AwesomeProfileImage {
     );
   }
 
+  Widget displayLive({
+    UserStatus? userStatus = UserStatus.offline,
+    bool showStatus = false,
+    Color badgeColor = Colors.green,
+    Color ripplesColor = const Color.fromARGB(255, 129, 199, 132),
+    TickerProvider? tickerProvider,
+    String badgeText = "Live", 
+  }) {
+    if (profileDisplaySize == ProfileDisplaySize.mini) {
+      throw Exception(
+          'Live Profile Pic Does not support ProfileDisplaySize.mini');
+    }
+    late Animation<double> _scaleAnimation;
+    late Animation<double> _fadeAnimation;
+    if (tickerProvider != null) {
+      late final AnimationController _controller = AnimationController(
+        vsync: tickerProvider,
+        duration: const Duration(milliseconds: 1000),
+      )..repeat();
+      _scaleAnimation =
+          Tween<double>(begin: 1.0, end: 1.1).animate(_controller);
+      _fadeAnimation = Tween<double>(begin: 1, end: 0.2).animate(_controller);
+    }
+
+    EdgeInsets padding = EdgeInsets.all(2);
+    return GestureDetector(
+      onTap: () {
+        if (onImageClicked != null) {
+          onImageClicked!();
+        }
+      },
+      child: Stack(
+        children: [
+          (tickerProvider != null)
+              ? FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: ScaleTransition(
+                    scale: _scaleAnimation,
+                    child: Container(
+                      width: getSizeFromProfileDisplaySize(profileDisplaySize),
+                      height: getSizeFromProfileDisplaySize(profileDisplaySize),
+                      decoration: BoxDecoration(
+                        shape:
+                            (profileDisplayShape == ProfileDisplayShape.circle)
+                                ? BoxShape.circle
+                                : BoxShape.rectangle,
+                        color: ripplesColor,
+                        borderRadius: (profileDisplayShape ==
+                                ProfileDisplayShape.squareround)
+                            ? BorderRadius.circular(10)
+                            : null,
+                      ),
+                    ),
+                  ),
+                )
+              : SizedBox(
+                  width: 0,
+                ),
+          mainDisplay(padding: padding, isLive: true , badgeColor : badgeColor ),
+          (showStatus)
+              ? Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: (profileDisplaySize ==
+                                    ProfileDisplaySize.large ||
+                                profileDisplaySize == ProfileDisplaySize.medium)
+                            ? 10
+                            : 3,
+                        horizontal: (profileDisplaySize ==
+                                    ProfileDisplaySize.large ||
+                                profileDisplaySize == ProfileDisplaySize.medium)
+                            ? 15
+                            : 5,
+                      ),
+                      decoration: BoxDecoration(
+                          color: badgeColor,
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
+                        badgeText.toUpperCase(),
+                        style: TextStyle(
+                          fontSize: getBadgeFontSizeFromProfileDisplaySize(
+                            profileDisplaySize,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox(
+                  width: 0,
+                  height: 0,
+                )
+        ],
+      ),
+    );
+  }
+
   Widget displayWithIcon(
       {Color iconBackgroundColor = Colors.grey,
       Color iconColor = Colors.black,
@@ -108,16 +208,17 @@ extension DisplayImage on AwesomeProfileImage {
           mainDisplay(),
           Positioned(
             bottom: 0,
-            right: (profileDisplaySize == ProfileDisplaySize.large &&
+            right: (
                     profileDisplayShape == ProfileDisplayShape.circle)
-                ? 30
+                ? getMarginForBadge(profileDisplaySize)
                 : 0,
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 onIconClicked();
               },
               child: Container(
-                width: getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
+                width:
+                    getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
                 height:
                     getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize),
                 decoration: BoxDecoration(
@@ -126,13 +227,14 @@ extension DisplayImage on AwesomeProfileImage {
                     border: Border.all(
                         color: iconBorderColor, width: iconBorderWidth)),
                 child: Center(
-                    child: Icon(
-                  icon,
-                  size:
-                      getIconBadgeSizeFromProfileDisplaySize(profileDisplaySize) -
-                          5,
-                  color: iconColor,
-                )),
+                  child: Icon(
+                    icon,
+                    color: iconColor,
+                    size: getIconBadgeSizeFromProfileDisplaySize(
+                            profileDisplaySize) -
+                        5,
+                  ),
+                ),
               ),
             ),
           )
@@ -141,10 +243,11 @@ extension DisplayImage on AwesomeProfileImage {
     );
   }
 
-  Widget mainDisplay() {
+  Widget mainDisplay({EdgeInsets? padding, bool isLive = false , Color badgeColor = Colors.green}) {
     return Container(
       width: getSizeFromProfileDisplaySize(profileDisplaySize),
       height: getSizeFromProfileDisplaySize(profileDisplaySize),
+      padding: (padding != null) ? padding : EdgeInsets.all(0),
       decoration: BoxDecoration(
         color: backgoundColor,
         shape: (profileDisplayShape == ProfileDisplayShape.circle)
@@ -154,7 +257,7 @@ extension DisplayImage on AwesomeProfileImage {
             ? BorderRadius.circular(10)
             : null,
         border: Border.all(
-            color: borderColor, width: borderWidth, style: BorderStyle.solid),
+            color: (isLive)?badgeColor:  this.borderColor, width: borderWidth, style: BorderStyle.solid),
       ),
       child: (imageUrl != null)
           ? SizedBox(

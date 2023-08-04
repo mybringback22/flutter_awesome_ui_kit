@@ -71,11 +71,11 @@ double getSizeFromProfileDisplaySize(ProfileDisplaySize profileDisplaySize) {
     case ProfileDisplaySize.large:
       return 200;
     case ProfileDisplaySize.small:
-      return 50;
+      return 75;
     case ProfileDisplaySize.medium:
       return 100;
     case ProfileDisplaySize.mini:
-      return 30;
+      return 50;
     default:
       return 100;
   }
@@ -86,11 +86,11 @@ double getMarginForBadge(ProfileDisplaySize profileDisplaySize) {
     case ProfileDisplaySize.large:
       return 25;
     case ProfileDisplaySize.small:
-      return 5;
-    case ProfileDisplaySize.medium:
       return 10;
+    case ProfileDisplaySize.medium:
+      return 15;
     case ProfileDisplaySize.mini:
-      return 3;
+      return 7;
     default:
       return 10;
   }
