@@ -11,7 +11,7 @@
 
 ## AwesomeButton
 
-<p>AwesomeButton offers 3 types of button with number of customizations that can cater to every usecase a developer can ever face using development. It also offers user feedback on click and press in the form of ripples effect</p>
+<p>AwesomeButton offers 3 types of button with number of customizations that can cater to every usecase a developer can ever face using development. It also offers user feedback on click and press in the form of ripples effect.</p>
 
 ### Types
 * rounded()
@@ -78,9 +78,9 @@ AwesomeButton(
 
 ## AwesomeProfileImage
 
-<p>AwesomeProfileImage offer varity option for customization that makes adding profile image in your application easier 
+<p>AwesomeProfileImage offer varity option for customization that makes adding profile image in your application easier.
 
-Customization offers include shape, size, border color and status type
+Customization offers include shape, size, border color and status type.
 
 </p>
 
@@ -96,7 +96,7 @@ Customization offers include shape, size, border color and status type
 
 ### Profile Display Shape
 
-ProfileDisplayShape is used for making different shapes for AwesomeProfileImage
+ProfileDisplayShape is used for making different shapes for AwesomeProfileImage.
 
 ```dart
 ProfileDisplayShape.circle
@@ -106,7 +106,7 @@ ProfileDisplayShape.squareround
 
 ### Profile Display Size
 
-ProfileDisplaySize is used for making different size for AwesomeProfileImage
+ProfileDisplaySize is used for making different size for AwesomeProfileImage.
 
 ```dart
 ProfileDisplaySize.mini
@@ -117,7 +117,7 @@ ProfileDisplaySize.large
 
 ### User Status
 
-UserStatus is used for adding different status to AwesomeProfilePicture
+UserStatus is used for adding different status to AwesomeProfilePicture.
 
 ```dart
 UserStatus.online
@@ -216,7 +216,7 @@ AwesomeProfileImage(
 
 ## AwesomeTextBoxed
 
-<p>AwesomeTextBoxed is a awesome boxed text with icon which can be used as warning, info, error or success  indicator</p>
+<p>AwesomeTextBoxed is a awesome boxed text with icon which can be used as warning, info, error or success  indicator.</p>
 
 ### Demo
 
@@ -224,7 +224,7 @@ AwesomeProfileImage(
 
 ### Text Boxed Type
 
-TextBoxType is used for getting different types of AwesomeTextBoxed as shown in demo
+TextBoxType is used for getting different types of AwesomeTextBoxed as shown in demo.
 
 ```dart
 TextBoxType.info
@@ -267,5 +267,26 @@ AwesomeTextBoxed(
     borderShape: BorderShape.circle,
     margin: const EdgeInsets.only(bottom: 20, top: 5,),
 )
-
 ```
+
+## AwesomeSnackbar
+
+<p>AwesomeSnackbar is powered by wonderfull AwesomeTextBoxed to add some kick to native snackbar </p>
+
+
+### Demo
+
+<img src="resources/demo_awesome_snack_bar.gif.png" width="400" >
+
+### Usage
+
+```dart
+AwesomeSnackbar(
+    "Some Error Occoured",
+    textBoxType: TextBoxType.error,
+    duration: 500,
+    borderShape: BorderShape.rounded,
+    context: context,
+ ).show()
+```
+
