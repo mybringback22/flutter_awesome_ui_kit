@@ -1,8 +1,8 @@
 # FLUTTER AWESOME UI KIT(BETA)
 
-<img src="resources/futter_aweseom_ui_kit_beta.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/development/resources/futter_aweseom_ui_kit_beta.png" width="800" >
 
-![version](https://img.shields.io/badge/version-0.0.3-blue) 
+![version](https://img.shields.io/badge/version-0.0.5-blue) 
 
 ## Installing 
 
@@ -46,9 +46,9 @@ import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 
 ### Demo
 
-<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/row/main/resources/button_demo_one.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/main/resources/button_demo_one.png" width="800" >
 
-<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/row/main/resources/button_demo_two.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/main/resources/button_demo_two.png" width="800" >
 
 ### Usage
 
