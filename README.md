@@ -11,7 +11,7 @@
 
 ## AwesomeButton
 
-<p>AwesomeButton offers 3 types of button with number of customizations that can cater to every usecase a developer can ever face using development</p>
+<p>AwesomeButton offers 3 types of button with number of customizations that can cater to every usecase a developer can ever face using development. It also offers user feedback on click and press in the form of ripples effect</p>
 
 ### Types
 * rounded()
@@ -73,4 +73,81 @@ AwesomeButton(
     padding: const EdgeInsets.symmetric(vertical: 20,),
     onClick: () {},
 ).flat()
+```
+
+
+## AwesomeProfileImage
+
+<p>AwesomeProfileImage offer varity option for customization that makes adding profile image in your application easier 
+
+Customization offers include shape, size, border color and status type
+
+</p>
+
+### Demo 
+<img src="resources/profile_demo.gif" width="400" >
+
+
+### Types
+* display() - Display Profile image with border and status
+* displayLive()  - For when user is live on the platform 
+* displayWithTextStatus() - Display Profile image with border and status as text
+* displayWithIcon() - Adds a clickable icon to the profile
+
+### Profile Display Shape
+
+ProfileDisplayShape is used for making different shapes for AwesomeProfileImage
+
+```dart
+ProfileDisplayShape.circle
+ProfileDisplayShape.square
+ProfileDisplayShape.squareround
+```
+
+### Profile Display Size
+
+ProfileDisplaySize is used for making different size for AwesomeProfileImage
+
+```dart
+ProfileDisplaySize.mini
+ProfileDisplaySize.small
+ProfileDisplaySize.medium
+ProfileDisplaySize.large
+```
+
+### User Status
+
+UserStatus is used for adding different status to AwesomeProfilePicture
+
+```dart
+UserStatus.online
+UserStatus.offline
+UserStatus.away
+UserStatus.busy
+UserStatus.dnd
+UserStatus.inactive
+```
+
+### Usage
+
+**LiveDisplay**
+**Note:**  Live Display Does not support ProfileDisplaySize.medium
+
+```dart
+AwesomeProfileImage(
+    profileDisplaySize:ProfileDisplaySize.medium,
+    borderWidth: (showBorder) ? 4 : 0,
+    borderColor: Colors.green,
+    profileDisplayShape: ProfileDisplayShape.squareround,
+    placeholderAssets: "assets/images/umar.jpg",
+    backgoundColor: Colors.white,
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+).displayLive(
+    showStatus: showStatus,
+    userStatus: userStatus,
+    badgeColor: Colors.red,
+    ripplesColor: Colors.red.shade500,
+    tickerProvider: this,
+    badgeText: "Live"
+),
 ```
