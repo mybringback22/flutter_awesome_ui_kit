@@ -2,6 +2,32 @@
 
 <img src="resources/futter_aweseom_ui_kit_beta.png" width="800" >
 
+![version](https://img.shields.io/badge/version-0.0.3-blue) 
+
+## Installing 
+
+with Dart 
+
+```console
+$ dart pub add flutter_awesome_ui_kit
+```
+
+
+with Flutter 
+
+```console
+$ dart pub add flutter_awesome_ui_kit
+```
+
+Import it
+Now in your Dart code, you can use:
+```dart
+import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
+```
+
+**If You Liked My Work**
+<br>
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/umarmanzoor22)
 
 ## Components
 * AwesomeButton
@@ -20,9 +46,9 @@
 
 ### Demo
 
-<img src="resources/button_demo_one.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/row/main/resources/button_demo_one.png" width="800" >
 
-<img src="resources/button_demo_two.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/row/main/resources/button_demo_two.png" width="800" >
 
 ### Usage
 
@@ -87,7 +113,7 @@ Customization offers include shape, size, border color and status type.
 </p>
 
 ### Demo 
-<img src="resources/profile_demo_two.gif" width="400" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/main/resources/profile_demo_two.gif" width="400" >
 
 
 ### Types
@@ -225,7 +251,7 @@ AwesomeProfileImage(
 
 ### Demo
 
-<img src="resources/demo_text_boxed.png" width="800" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/main/resources/demo_text_boxed.png" width="800" >
 
 ### Text Boxed Type
 
@@ -284,7 +310,7 @@ AwesomeTextBoxed(
 
 ### Demo
 
-<img src="resources/demo_awesome_snack_bar.gif" width="400" >
+<img src="https://github.com/mybringback22/flutter_awesome_ui_kit/raw/main/resources/demo_awesome_snack_bar.gif" width="400" >
 
 ### Usage
 
@@ -297,6 +323,11 @@ AwesomeSnackbar(
     context: context,
  ).show()
 ```
+
+**If You Liked My Work**
+<br>
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/umarmanzoor22)
+
 
 ## License
 MIT - License
