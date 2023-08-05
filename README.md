@@ -276,7 +276,7 @@ AwesomeTextBoxed(
 
 ### Demo
 
-<img src="resources/demo_awesome_snack_bar.gif.png" width="400" >
+<img src="resources/demo_awesome_snack_bar.gif" width="400" >
 
 ### Usage
 
