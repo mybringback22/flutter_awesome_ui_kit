@@ -23,9 +23,10 @@ Now in your Dart code, you can use:
 import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 ```
 
-**Version:** [version](https://img.shields.io/badge/version-0.0.3-blue)
+**Version:** ![version](https://img.shields.io/badge/version-0.0.3-blue)
 
 **If You Liked My Work**
+<br>
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/umarmanzoor22)
 
 ## Components
@@ -324,6 +325,7 @@ AwesomeSnackbar(
 ```
 
 **If You Liked My Work**
+<br>
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/umarmanzoor22)
 
 
