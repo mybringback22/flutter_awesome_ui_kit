@@ -85,7 +85,7 @@ Customization offers include shape, size, border color and status type
 </p>
 
 ### Demo 
-<img src="resources/profile_demo.gif" width="400" >
+<img src="resources/profile_demo_two.gif" width="400" >
 
 
 ### Types
@@ -130,8 +130,26 @@ UserStatus.inactive
 
 ### Usage
 
-**LiveDisplay**
-**Note:**  Live Display Does not support ProfileDisplaySize.medium
+**display** <br>
+
+
+```dart
+AwesomeProfileImage(
+    profileDisplaySize: profileDisplaySize,
+    borderWidth: (showBorder) ? 2 : 0,
+    borderColor: Colors.black,
+    profileDisplayShape: profileDisplayShape,
+    placeholderAssets: "assets/images/umar.jpg",
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+).display(
+    showStatus: true, 
+    userStatus: UserStatus.online,
+)
+```
+
+**displayLive** <br>
+
+**Note:**  displayLive Does not support ProfileDisplaySize.medium
 
 ```dart
 AwesomeProfileImage(
@@ -142,12 +160,74 @@ AwesomeProfileImage(
     placeholderAssets: "assets/images/umar.jpg",
     backgoundColor: Colors.white,
     imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+    onImageClicked:(){
+        // On Image clicked
+    }
 ).displayLive(
-    showStatus: showStatus,
-    userStatus: userStatus,
+    showStatus: true,
+    userStatus: UserStatus.online,
     badgeColor: Colors.red,
     ripplesColor: Colors.red.shade500,
     tickerProvider: this,
     badgeText: "Live"
-),
+)
+```
+
+**displayWithTextStatus** <br>
+
+```dart
+AwesomeProfileImage(
+    profileDisplaySize: ProfileDisplaySize.medium,
+    borderWidth: (showBorder) ? 2 : 0,
+    borderColor: Colors.black,
+    profileDisplayShape: ProfileDisplayShape.squareround,
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+    onImageClicked: () {
+        // On Image clicked
+    }
+).displayWithTextStatus(
+    showStatus: true, 
+    userStatus: UserStatus.online,
+)
+```
+
+**displayWithTextStatus** <br>
+
+```dart
+AwesomeProfileImage(
+    profileDisplaySize: ProfileDisplaySize.medium,
+    borderWidth: (showBorder) ? 2 : 0,
+    borderColor: Colors.black,
+    profileDisplayShape: ProfileDisplayShape.squareround,
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+    onImageClicked: () {
+        // On Image clicked
+    }
+).displayWithTextStatus(
+    showStatus: true, 
+    userStatus: UserStatus.online,
+)
+```
+
+**displayWithIcon** <br>
+
+```dart
+AwesomeProfileImage(
+    profileDisplaySize: profileDisplaySize,
+    borderWidth: (showBorder) ? 2 : 0,
+    borderColor: Colors.black,
+    profileDisplayShape: profileDisplayShape,
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+    onImageClicked: () {
+       // On Image clicked
+    }
+).displayWithIcon(
+    iconBackgroundColor: Colors.white,
+    iconBorderWidth: 2,
+    iconBorderColor: Colors.black,
+    iconColor: Colors.black,
+    icon: Icons.mic,
+    onIconClicked: () {
+        // On icon clicked
+}),
 ```
