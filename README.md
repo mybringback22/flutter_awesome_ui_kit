@@ -254,4 +254,18 @@ AwesomeTextBoxed(
     borderShape: BorderShape.rounded,
     margin: const EdgeInsets.only(bottom: 20,top: 5,),
 )
+
+// TextBoxType.custom
+// TextBoxType.custom require all the custom params custombackgroundColor customTextColor & customIcon
+AwesomeTextBoxed(
+    "Operation sucessfull",
+    textBoxType: TextBoxType.custom,
+    customIcon: Icons.favorite,
+    width: 150,
+    custombackgroundColor: Colors.pink.shade100,
+    customTextColor: Colors.pink,
+    borderShape: BorderShape.circle,
+    margin: const EdgeInsets.only(bottom: 20, top: 5,),
+)
+
 ```
