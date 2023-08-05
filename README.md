@@ -75,6 +75,8 @@ AwesomeButton(
 ).flat()
 ```
 
+<br>
+<br>
 
 ## AwesomeProfileImage
 
@@ -214,6 +216,9 @@ AwesomeProfileImage(
 }),
 ```
 
+<br>
+<br>
+
 ## AwesomeTextBoxed
 
 <p>AwesomeTextBoxed is a awesome boxed text with icon which can be used as warning, info, error or success  indicator.</p>
@@ -269,6 +274,9 @@ AwesomeTextBoxed(
 )
 ```
 
+<br>
+<br>
+
 ## AwesomeSnackbar
 
 <p>AwesomeSnackbar is powered by wonderfull AwesomeTextBoxed to add some kick to native snackbar </p>
@@ -290,3 +298,5 @@ AwesomeSnackbar(
  ).show()
 ```
 
+## License
+MIT - License
