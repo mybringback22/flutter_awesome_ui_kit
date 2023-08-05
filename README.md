@@ -2,6 +2,8 @@
 
 <img src="resources/futter_aweseom_ui_kit_beta.png" width="800" >
 
+<p align="center"> ![version](https://img.shields.io/badge/version-0.0.3-blue) </p>
+
 ## Installing 
 
 with Dart 
@@ -22,8 +24,6 @@ Now in your Dart code, you can use:
 ```dart
 import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 ```
-
-**Version:** ![version](https://img.shields.io/badge/version-0.0.3-blue)
 
 **If You Liked My Work**
 <br>
