@@ -1,7 +1,7 @@
 name: flutter_awesome_ui_kit
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/mybringback22/flutter_awesome_ui_kit
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

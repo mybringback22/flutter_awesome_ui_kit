@@ -8,3 +8,4 @@ export 'src/awesome_text_boxed/awesome_text_boxed.dart';
 export 'src/config/awesome_exception.dart';
 export 'src/config/border_shape.dart';
 export 'src/config/text_box_type.dart';
+export 'src/awesome_snack_bar/awesome_snack_bar.dart';
