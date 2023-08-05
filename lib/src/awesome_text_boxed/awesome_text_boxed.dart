@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_awesome_ui_kit/src/config/border_shape.dart';
-import 'package:flutter_awesome_ui_kit/src/config/text_box_type.dart';
+import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 
+//ignore: must_be_immutable
 class AwesomeTextBoxed extends StatelessWidget {
   String text;
   EdgeInsets margin;

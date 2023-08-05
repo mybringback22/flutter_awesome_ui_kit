@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_awesome_ui_kit/src/awesome_profile_image/awesome_profile_image.dart';
+import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 
 extension DisplayImage on AwesomeProfileImage {
   Widget display(
@@ -102,19 +102,19 @@ extension DisplayImage on AwesomeProfileImage {
       throw Exception(
           'Live Profile Pic Does not support ProfileDisplaySize.mini');
     }
-    late Animation<double> _scaleAnimation;
-    late Animation<double> _fadeAnimation;
+    late Animation<double> scaleAnimation;
+    late Animation<double> fadeAnimation;
     if (tickerProvider != null) {
-      late final AnimationController _controller = AnimationController(
+      late final AnimationController controller = AnimationController(
         vsync: tickerProvider,
         duration: const Duration(milliseconds: 1000),
       )..repeat();
-      _scaleAnimation =
-          Tween<double>(begin: 1.0, end: 1.1).animate(_controller);
-      _fadeAnimation = Tween<double>(begin: 1, end: 0.2).animate(_controller);
+      scaleAnimation =
+          Tween<double>(begin: 1.0, end: 1.1).animate(controller);
+      fadeAnimation = Tween<double>(begin: 1, end: 0.2).animate(controller);
     }
 
-    EdgeInsets padding = EdgeInsets.all(2);
+    EdgeInsets padding = const EdgeInsets.all(2);
     return GestureDetector(
       onTap: () {
         if (onImageClicked != null) {
@@ -125,9 +125,9 @@ extension DisplayImage on AwesomeProfileImage {
         children: [
           (tickerProvider != null)
               ? FadeTransition(
-                  opacity: _fadeAnimation,
+                  opacity: fadeAnimation,
                   child: ScaleTransition(
-                    scale: _scaleAnimation,
+                    scale: scaleAnimation,
                     child: Container(
                       width: getSizeFromProfileDisplaySize(profileDisplaySize),
                       height: getSizeFromProfileDisplaySize(profileDisplaySize),
@@ -145,7 +145,7 @@ extension DisplayImage on AwesomeProfileImage {
                     ),
                   ),
                 )
-              : SizedBox(
+              : const SizedBox(
                   width: 0,
                 ),
           mainDisplay(padding: padding, isLive: true , badgeColor : badgeColor ),
@@ -247,7 +247,7 @@ extension DisplayImage on AwesomeProfileImage {
     return Container(
       width: getSizeFromProfileDisplaySize(profileDisplaySize),
       height: getSizeFromProfileDisplaySize(profileDisplaySize),
-      padding: (padding != null) ? padding : EdgeInsets.all(0),
+      padding: (padding != null) ? padding : const EdgeInsets.all(0),
       decoration: BoxDecoration(
         color: backgoundColor,
         shape: (profileDisplayShape == ProfileDisplayShape.circle)
@@ -257,7 +257,7 @@ extension DisplayImage on AwesomeProfileImage {
             ? BorderRadius.circular(10)
             : null,
         border: Border.all(
-            color: (isLive)?badgeColor:  this.borderColor, width: borderWidth, style: BorderStyle.solid),
+            color: (isLive)?badgeColor: borderColor, width: borderWidth, style: BorderStyle.solid),
       ),
       child: (imageUrl != null)
           ? SizedBox(

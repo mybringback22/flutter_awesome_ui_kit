@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_awesome_ui_kit/src/awesome_button/awesome_button.dart';
+import 'package:flutter_awesome_ui_kit/flutter_awesome_ui_kit.dart';
 import 'package:flutter_awesome_ui_kit/src/awesome_button/button_utils.dart';
 
 
