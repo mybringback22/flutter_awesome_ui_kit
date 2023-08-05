@@ -2,7 +2,7 @@
 
 <img src="resources/futter_aweseom_ui_kit_beta.png" width="800" >
 
-<p align="center"> ![version](https://img.shields.io/badge/version-0.0.3-blue) </p>
+![version](https://img.shields.io/badge/version-0.0.3-blue) 
 
 ## Installing 
 
