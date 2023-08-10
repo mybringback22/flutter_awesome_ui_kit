@@ -1,28 +1,138 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_awesome_ui_kit/src/awesome_profile_image/with_icon.dart';
+import 'package:flutter_awesome_ui_kit/src/awesome_profile_image/with_live_effects.dart';
+import 'package:flutter_awesome_ui_kit/src/awesome_profile_image/with_status_dot.dart';
+import 'package:flutter_awesome_ui_kit/src/awesome_profile_image/with_status_text.dart';
 
-class AwesomeProfileImage {
-  ProfileDisplaySize profileDisplaySize = ProfileDisplaySize.medium;
-  Color borderColor;
-  Color? backgoundColor;
-  String? imageUrl;
-  double borderWidth;
-  String? placeholderAssets;
-  ProfileDisplayShape? profileDisplayShape = ProfileDisplayShape.circle;
-  Function ()? onImageClicked;
-  
+abstract class AwesomeProfileImage extends Widget {
+  factory AwesomeProfileImage.withStatusDot({
+    Key? key,
+    ProfileDisplaySize profileDisplaySize = ProfileDisplaySize.medium,
+    ProfileDisplayShape profileDisplayShape = ProfileDisplayShape.square,
+    Color borderColor = Colors.white,
+    Color backgoundColor = Colors.grey,
+    String? imageUrl,
+    double borderWidth = 0,
+    String? placeholderAssets,
+    Function()? onImageClicked,
+    UserStatus userStatus = UserStatus.offline,
+    bool showStatus = false,
+    Color? customStatusColor,
+  }) {
+    return WithStatusDot(
+      key: key,
+      profileDisplaySize: profileDisplaySize,
+      profileDisplayShape: profileDisplayShape,
+      borderColor: borderColor,
+      backgoundColor: backgoundColor,
+      imageUrl: imageUrl,
+      borderWidth: borderWidth,
+      placeholderAssets: placeholderAssets,
+      onImageClicked: onImageClicked,
+      userStatus: userStatus,
+      showStatus: showStatus,
+      customStatusColor: customStatusColor,
+    );
+  }
 
-  AwesomeProfileImage({
-    this.profileDisplaySize = ProfileDisplaySize.medium,
-    this.profileDisplayShape = ProfileDisplayShape.square,
-    this.borderColor = Colors.white,
-    this.backgoundColor = Colors.grey,
-    this.imageUrl,
-    this.borderWidth = 0,
-    this.placeholderAssets,
-    this.onImageClicked,
-  });
+  factory AwesomeProfileImage.withIcon({
+    Key? key,
+    ProfileDisplaySize profileDisplaySize = ProfileDisplaySize.medium,
+    ProfileDisplayShape profileDisplayShape = ProfileDisplayShape.square,
+    Color borderColor = Colors.white,
+    Color backgoundColor = Colors.grey,
+    String? imageUrl,
+    double borderWidth = 0,
+    String? placeholderAssets,
+    Function()? onImageClicked,
+    Color iconBackgroundColor = Colors.grey,
+    Color iconColor = Colors.black,
+    IconData icon = Icons.upload,
+    Color iconBorderColor = Colors.white,
+    double iconBorderWidth = 0,
+    required Function() onIconClicked,
+  }) {
+    return WithIcon(
+      key: key,
+      profileDisplaySize: profileDisplaySize,
+      profileDisplayShape: profileDisplayShape,
+      borderColor: borderColor,
+      backgoundColor: backgoundColor,
+      imageUrl: imageUrl,
+      borderWidth: borderWidth,
+      placeholderAssets: placeholderAssets,
+      onImageClicked: onImageClicked,
+      iconBackgroundColor: iconBackgroundColor,
+      iconColor: iconColor,
+      icon: icon,
+      iconBorderColor: iconBorderColor,
+      iconBorderWidth: iconBorderWidth,
+      onIconClicked: onIconClicked,
+    );
+  }
 
-  
+  factory AwesomeProfileImage.withStatusText({
+    Key? key,
+    ProfileDisplaySize profileDisplaySize = ProfileDisplaySize.medium,
+    ProfileDisplayShape profileDisplayShape = ProfileDisplayShape.square,
+    Color borderColor = Colors.white,
+    Color backgoundColor = Colors.grey,
+    String? imageUrl,
+    double borderWidth = 0,
+    String? placeholderAssets,
+    Function()? onImageClicked,
+    UserStatus userStatus = UserStatus.offline,
+    bool showStatus = false,
+    Color? customStatusColor,
+  }) {
+    return WithStatusText(
+      key: key,
+      profileDisplaySize: profileDisplaySize,
+      profileDisplayShape: profileDisplayShape,
+      borderColor: borderColor,
+      backgoundColor: backgoundColor,
+      imageUrl: imageUrl,
+      borderWidth: borderWidth,
+      placeholderAssets: placeholderAssets,
+      onImageClicked: onImageClicked,
+      userStatus: userStatus,
+      showStatus: showStatus,
+      customStatusColor: customStatusColor,
+    );
+  }
+
+  factory AwesomeProfileImage.withLiveEffects({
+    Key? key,
+    ProfileDisplaySize profileDisplaySize = ProfileDisplaySize.medium,
+    ProfileDisplayShape profileDisplayShape = ProfileDisplayShape.square,
+    Color borderColor = Colors.white,
+    Color backgoundColor = Colors.grey,
+    String? imageUrl,
+    double borderWidth = 0,
+    String? placeholderAssets,
+    Function()? onImageClicked,
+    UserStatus? userStatus = UserStatus.offline,
+    bool showStatus = false,
+    Color badgeColor = Colors.green,
+    Color ripplesColor = const Color.fromARGB(255, 129, 199, 132),
+    String badgeText = "Live",
+  }) {
+    return WithLiveEffects(
+      key: key,
+      profileDisplaySize: profileDisplaySize,
+      profileDisplayShape: profileDisplayShape,
+      borderColor: borderColor,
+      backgoundColor: backgoundColor,
+      imageUrl: imageUrl,
+      borderWidth: borderWidth,
+      placeholderAssets: placeholderAssets,
+      onImageClicked: onImageClicked,
+      showStatus: showStatus,
+      badgeColor: badgeColor,
+      ripplesColor: ripplesColor,
+      badgeText: badgeText,
+    );
+  }
 }
 
 enum UserStatus {
@@ -45,99 +155,4 @@ enum ProfileDisplayShape {
   circle,
   square,
   squareround,
-}
-
- Color getStatusColorBasedOnUserStatus(UserStatus userStatus) {
-  switch (userStatus) {
-    case UserStatus.online:
-      return Colors.green;
-    case UserStatus.away:
-      return const Color.fromARGB(255, 237, 216, 31);
-    case UserStatus.busy:
-      return const Color.fromARGB(255, 252, 88, 34);
-    case UserStatus.inactive:
-      return Colors.grey;
-    case UserStatus.offline:
-      return const Color.fromARGB(255, 178, 172, 172);
-    case UserStatus.dnd:
-      return Colors.red;
-    default:
-      return Colors.green;
-  }
-}
-
-double getSizeFromProfileDisplaySize(ProfileDisplaySize profileDisplaySize) {
-  switch (profileDisplaySize) {
-    case ProfileDisplaySize.large:
-      return 200;
-    case ProfileDisplaySize.small:
-      return 75;
-    case ProfileDisplaySize.medium:
-      return 100;
-    case ProfileDisplaySize.mini:
-      return 50;
-    default:
-      return 100;
-  }
-}
-
-double getMarginForBadge(ProfileDisplaySize profileDisplaySize) {
-  switch (profileDisplaySize) {
-    case ProfileDisplaySize.large:
-      return 25;
-    case ProfileDisplaySize.small:
-      return 10;
-    case ProfileDisplaySize.medium:
-      return 15;
-    case ProfileDisplaySize.mini:
-      return 7;
-    default:
-      return 10;
-  }
-}
-
-double getBadgeSizeFromProfileDisplaySize(ProfileDisplaySize profileDisplaySize) {
-  switch (profileDisplaySize) {
-    case ProfileDisplaySize.large:
-      return 30;
-    case ProfileDisplaySize.small:
-      return 10;
-    case ProfileDisplaySize.medium:
-      return 20;
-    case ProfileDisplaySize.mini:
-      return 7;
-    default:
-      return 20;
-  }
-}
-
-double getIconBadgeSizeFromProfileDisplaySize(ProfileDisplaySize profileDisplaySize) {
-  switch (profileDisplaySize) {
-    case ProfileDisplaySize.large:
-      return 40;
-    case ProfileDisplaySize.small:
-      return 20;
-    case ProfileDisplaySize.medium:
-      return 30;
-    case ProfileDisplaySize.mini:
-      return 10;
-    default:
-      return 30;
-  }
-}
-
-
-double getBadgeFontSizeFromProfileDisplaySize(ProfileDisplaySize profileDisplaySize) {
-  switch (profileDisplaySize) {
-    case ProfileDisplaySize.large:
-      return 12;
-    case ProfileDisplaySize.small:
-      return 8;
-    case ProfileDisplaySize.medium:
-      return 10;
-    case ProfileDisplaySize.mini:
-      return 6;
-    default:
-      return 10;
-  }
 }

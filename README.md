@@ -117,10 +117,10 @@ Customization offers include shape, size, border color and status type.
 
 
 ### Types
-* display() - Display Profile image with border and status
-* displayLive()  - For when user is live on the platform 
-* displayWithTextStatus() - Display Profile image with border and status as text
-* displayWithIcon() - Adds a clickable icon to the profile
+* withStatusDot() - Display Profile image with border and status
+* withLiveEffect()  - For when user is live on the platform 
+* withStatusText() - Display Profile image with border and status as text
+* withIcon() - Adds a clickable icon to the profile
 
 ### Profile Display Shape
 
@@ -162,14 +162,15 @@ UserStatus.inactive
 
 
 ```dart
-AwesomeProfileImage(
-    profileDisplaySize: profileDisplaySize,
-    borderWidth: (showBorder) ? 2 : 0,
+AwesomeProfileImage.withStatusDot(
+    profileDisplaySize: ProfileDisplaySize.medium,
+    borderWidth: 2,
     borderColor: Colors.black,
-    profileDisplayShape: profileDisplayShape,
+    profileDisplayShape: ProfileDisplayShape.square,
     placeholderAssets: "assets/images/umar.jpg",
+    showStatus: showStatus,
+    userStatus: userStatus
     imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
-).display(
     showStatus: true, 
     userStatus: UserStatus.online,
 )
@@ -180,40 +181,32 @@ AwesomeProfileImage(
 **Note:**  displayLive Does not support ProfileDisplaySize.medium
 
 ```dart
-AwesomeProfileImage(
+AwesomeProfileImage.withLiveEffects(
     profileDisplaySize:ProfileDisplaySize.medium,
-    borderWidth: (showBorder) ? 4 : 0,
-    borderColor: Colors.green,
-    profileDisplayShape: ProfileDisplayShape.squareround,
+    borderWidth: 4,
+    profileDisplayShape: ProfileDisplayShape.square,
     placeholderAssets: "assets/images/umar.jpg",
     backgoundColor: Colors.white,
-    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
-    onImageClicked:(){
-        // On Image clicked
-    }
-).displayLive(
-    showStatus: true,
-    userStatus: UserStatus.online,
+    showStatus: showStatus,
+    userStatus: userStatus,
     badgeColor: Colors.red,
     ripplesColor: Colors.red.shade500,
-    tickerProvider: this,
-    badgeText: "Live"
-)
+    imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
+),
 ```
 
 **displayWithTextStatus** <br>
 
 ```dart
-AwesomeProfileImage(
+AwesomeProfileImage.withStatusText
     profileDisplaySize: ProfileDisplaySize.medium,
-    borderWidth: (showBorder) ? 2 : 0,
+    borderWidth: 2,
     borderColor: Colors.black,
-    profileDisplayShape: ProfileDisplayShape.squareround,
+    profileDisplayShape: ProfileDisplayShape.square,
+    placeholderAssets: "assets/images/umar.jpg",
+    showStatus: showStatus,
+    userStatus: userStatus
     imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
-    onImageClicked: () {
-        // On Image clicked
-    }
-).displayWithTextStatus(
     showStatus: true, 
     userStatus: UserStatus.online,
 )
@@ -222,7 +215,7 @@ AwesomeProfileImage(
 **displayWithIcon** <br>
 
 ```dart
-AwesomeProfileImage(
+AwesomeProfileImage.withIcon(
     profileDisplaySize: profileDisplaySize,
     borderWidth: (showBorder) ? 2 : 0,
     borderColor: Colors.black,
@@ -230,8 +223,7 @@ AwesomeProfileImage(
     imageUrl: "https://i.imgur.com/HEXRUsu.jpeg",
     onImageClicked: () {
        // On Image clicked
-    }
-).displayWithIcon(
+    },
     iconBackgroundColor: Colors.white,
     iconBorderWidth: 2,
     iconBorderColor: Colors.black,
@@ -239,7 +231,8 @@ AwesomeProfileImage(
     icon: Icons.mic,
     onIconClicked: () {
         // On icon clicked
-}),
+    }
+),
 ```
 
 <br>
